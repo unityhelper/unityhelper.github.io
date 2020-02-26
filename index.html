@@ -8,23 +8,32 @@
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 		<link rel="stylesheet" href="/css/main.css" />
 
-<!-- FontAwesome JS -->
-<script defer src="assets/fontawesome/js/all.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto&display=swap" rel="stylesheet">
 
-		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-		<!--aqui vai o script de execuçao do firebase-->
+		<!-- FontAwesome JS -->
+		<script defer src="assets/fontawesome/js/all.js"></script>
 	</head>
 	<body>
 		<div class="dcs_topMenu">
 			<!--<i class="fas fa-adjust"></i>-->
-			<img style="width: 15%;" src="logo.png">
-			<input class="dcs_searchInput">
-			<button class="dcs_searchButton"><i class="fas fa-search"></i></button>
-			<a class="dcs_loginSing" onclick="">Login/Sign-up</a>
+			<img class="dcs_logo" src="logo.png">
+			<div class="dcs_searchInputDiv">
+				<input class="dcs_inputSearch">
+				<button class="dcs_searchButton"><i style="color: #000000a3;" class="fas fa-search"></i></button>
+			</div>
+			<div class="dcs_loginDiv">
+				<a id="logintext" class="dcs_loginSing" onclick="loginbox()">Login/Sign-up</a>
+				<a onclick="loginbox()">
+					<img id="loginimg" class="dcs_loginSingImg" src="">
+				</a>
+			</div>
+			<div id="loginBox" class="dcs_loginBox" style="visibility: hidden;">
+				<div id="firebaseui-auth-container" style="padding-top: 6%;width: 334px;height: 260px;" style="padding-top: 15%;"></div>
+				<div id="dcs_userMenu" class="dcs_userMenu"></div>
+			</div>
 		</div>
 
 		<div>
@@ -33,16 +42,20 @@
 			</div>
 
 			<div class="dcs_contenteRight">
-				
+				<div class="dcs_footRight">
+					<h4 class="dcs_madeRights">Made with <a style="text-decoration: none;color: #585858;" href="https://pages.github.com">GitHub</a>, <a style="text-decoration: none;color: #585858;" href="https://firebase.google.com">Google-FireBase</a></h4>
+					<h4 class="dcs_dcsRights">©2020 - Darkcomsoft.</h4>
+				</div>
 			</div>
 
 			<div class="dcs_contenteLeft">
 				
 			</div>
-
-			<div class="dcs_footRight">
-				
-			</div>
 		</div>
+		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+		<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+		<script defer src="assets/js/mainpage.js"></script>
 	</body>
 </html>

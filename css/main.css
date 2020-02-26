@@ -5,17 +5,17 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #000000a2;
+    background: #0000002b;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(42, 50, 72);
+    background: rgb(63, 63, 63);
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(58, 68, 99);
+    background: rgb(36, 36, 36);
   }
 
   .svg-icon {
@@ -51,182 +51,233 @@
   }
 
   /* Extra small devices (phones, 600px and down) */
-  @media only screen and (max-width: 600px) 
+@media only screen and (max-width: 600px) {
+  body
   {
-      body
-      {
-          margin: 0px;
-          border: 0px;
-          padding: 0px;
-          background-color: #E0E0E0;
-      }
+      margin: 0px;
+      border: 0px;
+      padding: 0px;
+      background-color: yellow;
   }
+}
 
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body
   {
-    body
+      margin: 0px;
+      border: 0px;
+      padding: 0px;
+      background-color: green;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body
+  {
+      margin: 0px;
+      border: 0px;
+      padding: 0px;
+      background-color: blue;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  body
+  {
+      margin: 0px;
+      border: 0px;
+      padding: 0px;
+      background-color: red;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+      body
     {
         margin: 0px;
         border: 0px;
         padding: 0px;
-        background-color: #E0E0E0;
-    }
-  }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) 
-  {
-      body
-      {
-          margin: 0px;
-          border: 0px;
-          padding: 0px;
-          background-color: #E0E0E0;
-      }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) 
-  {
-    body
-    {
-        margin: 0px;
-        border: 0px;
-        padding: 0px;
-        background-color: #E0E0E0;
-    }
-  }
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) 
-  {
-      body
-      {
-          margin: 0px;
-          border: 0px;
-          padding: 0px;
-          background-color: #E0E0E0;
-      }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) 
-  {
-      body
-      {
-          margin: 0px;
-          border: 0px;
-          padding: 0px;
-          background-color: #E0E0E0;
-      }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) 
-  {
-    body
-    {
-        margin: 0px;
-        border: 0px;
-        padding: 0px;
-        background-color: #E0E0E0;
-    }
-  }
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) 
-  {
-      body
-      {
-          margin: 0px;
-          border: 0px;
-          padding: 0px;
-          background-color: #E0E0E0;
-      }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) 
-  {
-    body
-    {
-        margin: 0px;
-        border: 0px;
-        padding: 0px;
-        background-color: #E0E0E0;
+        background-color: #6d6d6d;
     }
 
+    /*TopMenu*/
     .dcs_topMenu{
-      position: static;
+      position: fixed;
     background-color: #262626;
     width: 100%;
-    height: 45px;
+    height: 60px;
     box-shadow: 0 2px 2px 0px black;
-    display: flex;
+    z-index: 100;
     }
 
-    .dcs_searchInput{
-      width: 46%;
-    height: 32px;
-    margin-left: 142px;
-    margin-top: 7px;
-    border: 0px;
+    .dcs_loginBox{
+      width: fit-content;
+    height: fit-content;
+    background-color: #dbdbdb;
+    transform: translate(0, -55px);
+    position: absolute;
+    margin-left: 72%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     }
-    .dcs_searchButton{
+
+  .dcs_userMenu{
+    background-color: #dbdbdb;
+    width: 360px;
+    height: 401px;
+    margin: 0px;
+  }
+
+    .dcs_logo{
+      width: 237px;
+      height: 44px;
+      display: block;
+      transform: translate(0, 10px);
+      margin-left: 3%;
+    }
+
+    .dcs_searchInputDiv{
+      width: 46.3%;
+    height: 55%;
+    border: 0px;
+    transform: translate(0, -29px);
+    margin-left: 24%;
+    padding: 0px;
+    background-color: white;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    }
+
+    .dcs_inputSearch{
+      width: 99.2%;
+      height: 100%;
       border: 0px;
-      margin-top: 7px;
-      height: 34px;
+      margin-left: 5px;
+      padding: 0px;
+      background-color: #ffffff00;
+      font-family: 'Roboto','Noto',sans-serif;
+    }
+
+    .dcs_inputSearch:focus{
+      outline: 0px;
+    }
+
+    .dcs_searchButton{
+      height: 100%;
       width: 72px;
-      background-color: #e5e5e5;
       cursor: pointer;
+      transform: translate(0, -100%);
+      margin-left: 100%;
+      border: 0;
+      border-style: none;
+      padding: 0;
+      border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    }
+
+    .dcs_searchButton:focus{
+      outline: 0px;
+      background-color: #dadada;
     }
 
     .dcs_loginSing{
       color: white;
       font-family: sans-serif;
-      margin-top: 15px;
-      margin-left: 11%;
       cursor: pointer;
     }
+    .dcs_loginSingImg{
+      cursor: pointer;
+    border-radius: 50%;
+    width: 41px;
+    transform: translate(69px, -17px);
+    }
+
+    .dcs_loginDiv{
+      transform: translate(80%, -52px);
+    }
+    /*End topmenu*/
 
     /*main content body*/
     .dcs_contenteMain{
       background-color: #B7B7B7;
-    position: absolute;
-    margin-left: 24%;
-    margin-top: 24px;
-    width: 50.5%;
-    height: 100%;
-    margin-bottom: 0px;
-    border: 0px;
+      position: absolute;
+      margin-left: 24%;
+      margin-top: 77px;
+      width: 50.5%;
+      height: 100%;
+      margin-bottom: 0px;
+      border-style: solid;
+      border-color: #a3a3a3;
     padding: 0px;
+    border-radius: 4px;
+    border-width: 2px;
+      padding: 0px;
     }
 
     .dcs_contenteRight{
       background-color: #B7B7B7;
-    position: absolute;
-    margin-left: 75%;
-    margin-top: 24px;
-    width: 16.5%;
-    height: 79%;
+      position: absolute;
+      margin-left: 75%;
+      margin-top: 77px;
+      width: 16.5%;
+      height: 79%;
+      border-style: solid;
+      border-color: #a3a3a3;
+      padding: 0px;
+      border-radius: 4px;
+      border-width: 2px;
     }
 
     .dcs_contenteLeft{
       background-color: #B7B7B7;
       position: absolute;
       margin-left: 10%;
-      margin-top: 24px;
+      margin-top: 77px;
       width: 13.5%;
       height: 73%;
+      border-style: solid;
+      border-color: #a3a3a3;
+    padding: 0px;
+    border-radius: 4px;
+    border-width: 2px;
     }
 
     .dcs_footRight{
       background-color: #B7B7B7;
-      position: absolute;
-      margin-left: 75%;
-      margin-top: 40.3%;
-      width: 16.5%;
-      height: 19%;
+    margin-top: 234%;
+    width: 100%;
+    height: 21%;
+    border-style: solid;
+    border-color: #a3a3a3;
+    border-radius: 4px;
+    border-width: 2px;
+    padding: 0px;
+    transform: translate(-2px,0);
     }
-  }
+    /*end main content body*/
+
+    /*foot box*/
+    .dcs_dcsRights{
+      color: #2c2c2c;
+    font-family: monospace;
+    font-size: 11px;
+    margin: 0px;
+    text-align: center;
+    font-weight: 400;
+    }
+    .dcs_madeRights{
+      color: #2c2c2c;
+      font-family: monospace;
+      font-size: 11px;
+      margin-top: 36%;
+      margin-bottom: 0px;
+      text-align: center;
+      font-weight: 400;
+    }
+    /*end foot box*/
+}
