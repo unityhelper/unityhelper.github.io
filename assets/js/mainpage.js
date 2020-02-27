@@ -10,7 +10,31 @@ var firebaseConfig = {
     measurementId: "G-G1SS17T3HG"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  var app =firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore(app);
+
+  var docRef = db.collection("posts");
+
+var isLogin = false;
+
+let documents = docRef.limit(25).get().then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log("Parent Document ID: ", doc.data());
+
+        var jso = JSON.parse(JSON.stringify(doc.data()));
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+      });
+        finishLoad();
+    }).catch(err => {
+    console.log("Error getting documents", err);
+    finishLoad();
+  });
 
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
   var uiConfig = {
@@ -32,7 +56,6 @@ var firebaseConfig = {
   signInSuccessUrl: '/',
   signInOptions: [
   // Leave the lines as is for the providers you want to offer your users.
-  firebase.auth.EmailAuthProvider.PROVIDER_ID,
   firebase.auth.GoogleAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
@@ -54,29 +77,62 @@ var firebaseConfig = {
     doBeforeLoginStuff();
   }
 
+  var userName = obj[0].displayName.split(" ")[0] + obj[0].displayName.split(" ")[1];
+
   function doAfterLoginStuff(){
+    isLogin = true;
     console.log("DEBUG: voce esta logado, e seu nome publico é :" + obj[0].displayName); 
     document.getElementById("logintext").style = "display: none;";
+    document.getElementById("loginBox").style = "transform: translate(0, -57px);visibility: hidden;";
     document.getElementById("loginimg").style = "display: block;";
     document.getElementById("loginimg").src = obj[0].photoUrl;
     document.getElementById("dcs_userMenu").style = "display: block;";
+    document.getElementById("createButton").style = "display: block;";
     document.getElementById("firebaseui-auth-container").style = "display: none;";
   }
 
   function doBeforeLoginStuff(){
+    isLogin = false;
     document.getElementById("logintext").style = "display: block;";
+    document.getElementById("loginBox").style = "transform: translate(0, -16px); visibility: hidden;";
     document.getElementById("loginimg").style = "display: none;";
     document.getElementById("dcs_userMenu").style = "display: none;";
+    document.getElementById("createButton").style = "display: none;";
     document.getElementById("firebaseui-auth-container").style = "display: block;";
   }
 
+  function goToProfile(){
+    window.location.replace("/" + userName.toLowerCase());
+  }
+
+  function goToConfig(){
+    window.location.replace("/user/config");
+  }
+
+  function logoff(){
+    indexedDB.deleteDatabase("firebaseLocalStorageDb");
+    localStorage.removeItem("firebaseui::rememberedAccounts");
+    window.location.replace("/");
+  }
 
   function loginbox(){
       if (document.getElementById("loginBox").style.visibility == "hidden"){
-        document.getElementById("loginBox").style = "visibility: none;";
+        if (isLogin){
+          document.getElementById("loginBox").style = "visibility: none; transform: translate(0, -57px);";
+        }else{
+          document.getElementById("loginBox").style = "visibility: none; transform: translate(0, -16px);";
+        }
       }else{
-        document.getElementById("loginBox").style = "visibility: hidden;";
+        if (isLogin){
+          document.getElementById("loginBox").style = "visibility: hidden; transform: translate(0, -57px);";
+        }else{
+          document.getElementById("loginBox").style = "visibility: hidden; transform: translate(0, -16px);";
+        }
       }
+  }
+
+  function renderStartContent(name){
+    document.getElementById("contentMain").innerHTML += '<div class="dcs_contentItemDiv"><img class="dcs_contenteIDFImg" src="' + obj[0].photoUrl +'"><div class="dcs_contentIDFoot"><a class="dcs_contenteIDFText">Nome de teste do item by ' + name + '</a> </div></div>';
   }
 
   function getCookie(cname) {
@@ -93,4 +149,11 @@ var firebaseConfig = {
       }
     }
     return "";
+  }
+
+  function finishLoad(){
+    //Finishe load the page
+    document.getElementById("body-content").style = "display: block;";
+    document.getElementById("body-topmenu").style = "display: block;";
+    document.getElementById("loader").style = "display: none;";
   }

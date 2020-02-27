@@ -1,35 +1,112 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>UnityHelper - 404 Error</title>
+		<title>UnityHelper</title>
 
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 		<link rel="stylesheet" href="/css/main.css" />
 
-<!-- FontAwesome JS -->
-<script defer src="assets/fontawesome/js/all.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto&display=swap" rel="stylesheet">
 
+		<!-- FontAwesome JS -->
+		<script defer src="assets/fontawesome/js/all.js"></script>
+	</head>
+	<body>
+		<div id="loader" style="display: block;" class="loader"></div>
+		<div id="body-topmenu" class="dcs_topMenu" style="display: none;">
+			<!--<i class="fas fa-adjust"></i>-->
+			<div style="transform: translate(10px, 10px);width: 17%;">
+				<a onclick="window.location.replace('/')" style="cursor: pointer;">
+					<img class="dcs_logo" src="logo.png">
+				</a>
+			</div>
+
+			<div class="dcs_searchInputDiv">
+				<input class="dcs_inputSearch">
+				<button class="dcs_searchButton"><i style="color: #000000a3;" class="fas fa-search"></i></button>
+			</div>
+			<div class="dcs_loginDiv">
+				<a id="logintext" class="dcs_loginSing" onclick="loginbox()">Login/Sign-up</a>
+				<button id="createButton" class="dcs_createButton" onclick="">Create</button>
+				<a style="margin-left: 67%;" onclick="loginbox()">
+					<img id="loginimg" class="dcs_loginSingImg" src="">
+				</a>
+			</div>
+			<div id="loginBox" class="dcs_loginBox" style="visibility: hidden;">
+				<div id="firebaseui-auth-container" style="padding-top: 6%;width: 334px;height: 260px;" style="padding-top: 15%;"></div>
+				<div id="dcs_userMenu" class="dcs_userMenu">
+					<button class="dcs_userMenuButton" onclick="goToProfile()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-user-alt"></i>
+							<a class="dcs_userMenuBIText">Your profile</a>
+						</div>
+					</button>
+					<button class="dcs_userMenuButton" onclick="goToProfile()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-columns"></i>
+							<a class="dcs_userMenuBIText">Feed</a>
+						</div>
+					</button>
+					<button class="dcs_userMenuButton" onclick="goToProfile()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-globe"></i>
+							<a class="dcs_userMenuBIText">Discovery</a>
+						</div>
+					</button>
+					<button class="dcs_userMenuButton" onclick="goToProfile()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-sliders-h"></i>
+							<a class="dcs_userMenuBIText">Dashboard</a>
+						</div>
+					</button>
+					
+					<button class="dcs_userMenuButton" onclick="goToProfile()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-clipboard-list"></i>
+							<a class="dcs_userMenuBIText">Collections</a>
+						</div>
+					</button>
+					<button class="dcs_userMenuButton" onclick="goToConfig()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-cog"></i>
+							<a class="dcs_userMenuBIText">Config</a>
+						</div>
+					</button>
+					<button class="dcs_userMenuButton" onclick="logoff()">
+						<div class="dcs_userMenuBInside">
+							<i style="color: #000000a3;" class="fas fa-sign-out-alt"></i>
+							<a class="dcs_userMenuBIText">Logout</a>
+						</div>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="body-content" style="display: none;">
+			<div id="contentMain" class="dcs_contenteMain">
+				
+			</div>
+
+			<div class="dcs_contenteRight">
+				<div class="dcs_footRight">
+					<h4 class="dcs_madeRights">Made with <a style="text-decoration: none;color: #585858;" href="https://pages.github.com">GitHub</a>, <a style="text-decoration: none;color: #585858;" href="https://firebase.google.com">Google-FireBase</a></h4>
+					<h4 class="dcs_dcsRights">©2020 - Darkcomsoft.</h4>
+				</div>
+			</div>
+
+			<div class="dcs_contenteLeft">
+				
+			</div>
+		</div>
 		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
 		<script defer src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-		<!--aqui vai o script de execuçao do firebase-->
-	</head>
-	<body>
-		<div class="dcs_topMenu">
-			<!--<i class="fas fa-adjust"></i>-->
-			<img style="width: 15%;" src="logo.png">
-			<input class="dcs_searchInput">
-			<button class="dcs_searchButton"><i class="fas fa-search"></i></button>
-			<a class="dcs_loginSing" onclick="">Login/Sign-up</a>
-		</div>
-
-        <div>
-            <h1 style="padding-top: 18%;align-content: center;font-family: sans-serif;text-align: -webkit-center;">Error 404</h1>
-            <h3 style="align-content: center;font-family: sans-serif;text-align: -webkit-center;">The Page you are looking for dont exist</h3>
-		</div>
+		<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+		<script defer src="assets/js/profile.js"></script>
 	</body>
 </html>

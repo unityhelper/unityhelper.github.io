@@ -104,41 +104,92 @@
         background-color: #6d6d6d;
     }
 
+    .loader {
+      border: 16px solid #f3f3f3;
+    border-top: 16px solid #1396ed;
+    border-radius: 50%;
+    border-width: 5px;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    margin-left: 50%;
+    margin-top: 25%;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /*TopMenu*/
     .dcs_topMenu{
       position: fixed;
     background-color: #262626;
     width: 100%;
     height: 60px;
-    box-shadow: 0 2px 2px 0px black;
+    box-shadow: 0 2px 2px 0px #00000045;
     z-index: 100;
     }
 
     .dcs_loginBox{
-      width: fit-content;
+      width: 19%;
     height: fit-content;
     background-color: #dbdbdb;
-    transform: translate(0, -55px);
-    position: absolute;
-    margin-left: 72%;
+    margin-left: 76%;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    position: absolute;
+    border: #bbbbbb;
+    border-style: solid;
+    border-width: 2px;
     }
 
   .dcs_userMenu{
-    background-color: #dbdbdb;
-    width: 360px;
-    height: 401px;
+    width: 100%;
+    margin-top: 1650px;
+    height: 338px;
     margin: 0px;
+  }
+
+.dcs_userMenuBInside{
+  width: 77%;
+  margin-left: 23px;
+}
+
+.dcs_userMenuBIText{
+  margin-left: 8px;
+}
+  
+  .dcs_userMenuButton{
+    width: 98%;
+    margin-top: 2px;
+    margin-left: 3px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: #b7b7b7;
+    background-color: #dbdbdb;
+    text-align: start;
+  }
+  .dcs_userMenuButton:hover{
+    background-color: #d1d1d1;
+    outline: 0;
+  }
+
+  .dcs_userMenuButton:focus{
+    outline: 0;
+  }
+
+  .dcs_userMenuButton:active{
+    background-color: #929292;
+    outline: 0;
   }
 
     .dcs_logo{
       width: 237px;
-      height: 44px;
-      display: block;
-      transform: translate(0, 10px);
-      margin-left: 3%;
+    height: 44px;
+    display: block;
     }
 
     .dcs_searchInputDiv{
@@ -187,18 +238,42 @@
 
     .dcs_loginSing{
       color: white;
-      font-family: sans-serif;
-      cursor: pointer;
+    font-family: sans-serif;
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    transform: translate(0px, 13px);
     }
     .dcs_loginSingImg{
       cursor: pointer;
-    border-radius: 50%;
-    width: 41px;
-    transform: translate(69px, -17px);
+      border-radius: 50%;
+      width: 41px;
+    }
+
+    .dcs_createButton{
+      height: 78%;
+      width: 46%;
+      position: absolute;
+      border: 0;
+      background-color: #ffffff0d;
+      color: white;
+      margin-left: 13%;
+      transform: translate(0px, 5px);
+    }
+
+    .dcs_loginSingImg:hover{
+      opacity: 70%;
+    }
+
+    .dcs_loginSingImg:active{
+      opacity: 50%;
     }
 
     .dcs_loginDiv{
-      transform: translate(80%, -52px);
+      transform: translate(644%, -67px);
+      width: 12%;
+      display: flex;
     }
     /*End topmenu*/
 
@@ -209,14 +284,65 @@
       margin-left: 24%;
       margin-top: 77px;
       width: 50.5%;
-      height: 100%;
+      height: auto;
       margin-bottom: 0px;
       border-style: solid;
       border-color: #a3a3a3;
-    padding: 0px;
-    border-radius: 4px;
-    border-width: 2px;
       padding: 0px;
+      border-radius: 4px;
+      border-width: 2px;
+      padding: 0px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: minmax(138px, auto);
+      row-gap: 3px;
+      column-gap: 0px;
+      box-shadow: 0 1px 4px #0000006b;
+    }
+
+    .dcs_contentItemDiv{
+      background-color: #0000001c;
+      margin-top: 4px;
+      margin-left: 4px;
+      border-radius: 2px;
+      width: 95%;
+      cursor: pointer;
+      height: 97%;
+    }
+
+    .dcs_contentItemDiv:hover{
+      background-color:#00000059
+    }
+
+    .dcs_contenteIDFImg{
+      width: 100%;
+    height: 100%;
+    }
+    
+    .dcs_contentIDFoot{
+      height: 26px;
+    background-color: #00000026;
+    transform: translate(0, -30px);
+    }
+
+    .dcs_contenteIDFText{
+      margin-top: 3px;
+    margin-left: 6px;
+    position: absolute;
+    color: #ffffffe3;
+    font-family: Roboto, Arial, sans-serif;
+    display: -webkit-box;
+    max-height: 3.2rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 11px;
+    width: 95%;
+    word-break: break-all;
     }
 
     .dcs_contenteRight{
@@ -231,6 +357,7 @@
       padding: 0px;
       border-radius: 4px;
       border-width: 2px;
+      box-shadow: 0 1px 4px #0000006b;
     }
 
     .dcs_contenteLeft{
@@ -245,6 +372,7 @@
     padding: 0px;
     border-radius: 4px;
     border-width: 2px;
+    box-shadow: 0 1px 4px #0000006b;
     }
 
     .dcs_footRight{
@@ -258,6 +386,7 @@
     border-width: 2px;
     padding: 0px;
     transform: translate(-2px,0);
+    box-shadow: 0 1px 4px #0000006b;
     }
     /*end main content body*/
 
