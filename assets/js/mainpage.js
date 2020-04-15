@@ -29,6 +29,14 @@ let documents = docRef.limit(25).get().then(snapshot => {
           renderStartContent(jso.ownername);
           renderStartContent(jso.ownername);
           renderStartContent(jso.ownername);
+		  renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+          renderStartContent(jso.ownername);
+
       });
         finishLoad();
     }).catch(err => {
@@ -66,26 +74,28 @@ let documents = docRef.limit(25).get().then(snapshot => {
   
   ui.start('#firebaseui-auth-container', uiConfig);
 
+  var userName = "undefined";
+  var profileImg = "http://blogs.uoregon.edu/projectiondesignpdw/files/2015/03/Test-Pattern-1-1934x1088-y65ce5.png";
+
   //Get cookies and do all the check if is signed in
   if (localStorage.getItem("firebaseui::rememberedAccounts") != null)
   {
     var cookiesstring = localStorage.getItem("firebaseui::rememberedAccounts");
     var obj = JSON.parse(cookiesstring);
-
+	userName = obj[0].displayName.split(" ")[0] + obj[0].displayName.split(" ")[1];
+	profileImg = obj[0].photoUrl;
     doAfterLoginStuff();
   }else{
     doBeforeLoginStuff();
   }
 
-  var userName = obj[0].displayName.split(" ")[0] + obj[0].displayName.split(" ")[1];
-
   function doAfterLoginStuff(){
     isLogin = true;
-    console.log("DEBUG: voce esta logado, e seu nome publico é :" + obj[0].displayName); 
+    console.log("DEBUG: voce esta logado, e seu nome publico é :" + userName.toLowerCase()); 
     document.getElementById("logintext").style = "display: none;";
     document.getElementById("loginBox").style = "transform: translate(0, -57px);visibility: hidden;";
     document.getElementById("loginimg").style = "display: block;";
-    document.getElementById("loginimg").src = obj[0].photoUrl;
+    document.getElementById("loginimg").src = profileImg;
     document.getElementById("dcs_userMenu").style = "display: block;";
     document.getElementById("createButton").style = "display: block;";
     document.getElementById("firebaseui-auth-container").style = "display: none;";
@@ -132,7 +142,7 @@ let documents = docRef.limit(25).get().then(snapshot => {
   }
 
   function renderStartContent(name){
-    document.getElementById("contentMain").innerHTML += '<div class="dcs_contentItemDiv"><img class="dcs_contenteIDFImg" src="' + obj[0].photoUrl +'"><div class="dcs_contentIDFoot"><a class="dcs_contenteIDFText">Nome de teste do item by ' + name + '</a> </div></div>';
+    document.getElementById("contentMain").innerHTML += '<div class="dcs_contentItemDiv"><img class="dcs_contenteIDFImg" src="' + profileImg +'"><div class="dcs_contentIDFoot"><a class="dcs_contenteIDFText">Nome de teste do item by ' + name + '</a> </div></div>';
   }
 
   function getCookie(cname) {
